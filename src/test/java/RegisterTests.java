@@ -8,16 +8,13 @@ public class RegisterTests extends TestBase {
     @Test
     void successRegisterTest() {
         String authData = "{\"email\": \"eve.holt@reqres.in\", \"password\": \"pistol\"}";
-
         given()
                 .header("x-api-key", "reqres-free-v1")
                 .body(authData)
                 .contentType(JSON)
                 .log().uri()
-
                 .when()
                 .post("https://reqres.in/api/register")
-
                 .then()
                 .log().status()
                 .log().body()
@@ -30,15 +27,12 @@ public class RegisterTests extends TestBase {
     @Test
     void unsuccessRegister400Test() {
         String authData = "";
-
         given()
                 .header("x-api-key", "reqres-free-v1")
                 .body(authData)
                 .log().uri()
-
                 .when()
                 .post("https://reqres.in/api/register")
-
                 .then()
                 .log().status()
                 .log().body()
@@ -49,16 +43,13 @@ public class RegisterTests extends TestBase {
     @Test
     void userNotRegisterTest() {
         String authData = "{\"email\": \"eveasdas.holt@reqres.in\", \"password\": \"cda\"}";
-
         given()
                 .header("x-api-key", "reqres-free-v1")
                 .body(authData)
                 .contentType(JSON)
                 .log().uri()
-
                 .when()
                 .post("https://reqres.in/api/register")
-
                 .then()
                 .log().status()
                 .log().body()
@@ -69,16 +60,13 @@ public class RegisterTests extends TestBase {
     @Test
     void missingPasswordTest() {
         String authData = "{\"email\": \"eveasdas.holt@reqres.in\"}";
-
         given()
                 .header("x-api-key", "reqres-free-v1")
                 .body(authData)
                 .contentType(JSON)
                 .log().uri()
-
                 .when()
                 .post("https://reqres.in/api/register")
-
                 .then()
                 .log().status()
                 .log().body()
@@ -90,16 +78,13 @@ public class RegisterTests extends TestBase {
     @Test
     void missingLoginTest() {
         String authData = "{\"password\": \"cda\"}";
-
         given()
                 .header("x-api-key", "reqres-free-v1")
                 .body(authData)
                 .contentType(JSON)
                 .log().uri()
-
                 .when()
                 .post("https://reqres.in/api/register")
-
                 .then()
                 .log().status()
                 .log().body()
@@ -109,16 +94,13 @@ public class RegisterTests extends TestBase {
     @Test
     void wrongBodyTest() {
         String authData = "%}";
-
         given()
                 .header("x-api-key", "reqres-free-v1")
                 .body(authData)
                 .contentType(JSON)
                 .log().uri()
-
                 .when()
                 .post("https://reqres.in/api/register")
-
                 .then()
                 .log().status()
                 .log().body()
@@ -135,5 +117,4 @@ public class RegisterTests extends TestBase {
                 .log().body()
                 .statusCode(415);
     }
-
 }
