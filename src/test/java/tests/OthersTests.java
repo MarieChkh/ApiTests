@@ -1,3 +1,5 @@
+package tests;
+
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -42,6 +44,7 @@ public class OthersTests extends TestBase {
     }
     @Test
     void UpdatePatchTest() {
+
         String authData = "{\"name\": \"morpheus\", \"job\": \"zion resident\"}";
         given()
                 .header("x-api-key", "reqres-free-v1")
