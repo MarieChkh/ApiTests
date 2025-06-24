@@ -1,11 +1,8 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
-import io.restassured.RestAssured;
 import models.SuccessfulRegisterBodyModel;
 import models.SuccessfulRegisterResponseModel;
 import models.UnsuccessfulRegisterBodyModel;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;

@@ -63,5 +63,6 @@ public class OthersSpecModelTests extends TestBase {
             assertEquals("morpheus",response.getName());
             assertEquals("zion resident",response.getJob());
         });
+
     }
 }
