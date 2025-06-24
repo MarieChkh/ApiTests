@@ -1,0 +1,16 @@
+{
+  "base": {
+    "project": "Project ifellow",
+    "environment": "test",
+    "comment": "comment here @mnch30",
+    "reportLink": "https://jenkins.autotests.cloud/job/vacansia_tests/1/allure/",
+    "language": "en",
+    "allureFolder": "allure-report",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "7970489151:AAGZIyvzXkH7U8HaHdutY-R-TlJEqrVn8uw",
+    "chat": "-1002646882391",
+    "replyTo": ""
+  }
+}
