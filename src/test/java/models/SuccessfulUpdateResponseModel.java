@@ -6,5 +6,4 @@ import lombok.Data;
 public class SuccessfulUpdateResponseModel {
 
     String name, job, updatedAt;
-
 }

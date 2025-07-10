@@ -41,7 +41,7 @@
 - ✅ Корретное обновление имени и работы пользователя(patch)
 - ✅ Невалидные данные пользователя в апдейте
 
-## <img alt="Jenkins" height="25" src="media/Jenkins.svg" width="25"/> Сборка в [Jenkins](https://jenkins.autotests.cloud/job/Students/job/18-lom14-betcity/)
+## <img alt="Jenkins" height="25" src="media/Jenkins.svg" width="25"/> Сборка в [Jenkins](https://jenkins.autotests.cloud/job/Api_tests/)
 
 
 <p align="center">  
