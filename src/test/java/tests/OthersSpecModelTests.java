@@ -1,13 +1,12 @@
 package tests;
 
 import models.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
-import static io.restassured.http.ContentType.JSON;
-import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static specs.RegisterSpecs.getResponseSpecification;
@@ -16,7 +15,8 @@ import static specs.RegisterSpecs.loginRequestSpec;
 @Tag("Api")
 public class OthersSpecModelTests extends TestBase {
     @Test
-    void updatePutTest() {
+    @DisplayName("Обновление и последующее удаление юзера")
+    void updatePutAndDeleteTest() {
         UpdateUserModel updateUserData = new UpdateUserModel("morpheus", "zion resident");
         SuccessfulUpdateResponseModel response = step("Корретное обновление имени и работы пользователя", () ->
                 given(loginRequestSpec)
@@ -30,9 +30,18 @@ public class OthersSpecModelTests extends TestBase {
             assertEquals("morpheus",response.getName());
             assertEquals("zion resident",response.getJob());
         });
+        step("Удаление юзера", () ->
+                given(loginRequestSpec)
+                        .when()
+                        .delete("/users/2")
+
+                        .then()
+                        .spec(getResponseSpecification(204))
+        );
     }
 
     @Test
+    @DisplayName("Негативный сценарий: пользователь не обновлен")
     void NotUpdatePutTest() {
         UpdateUserModel updateUserData = new UpdateUserModel("%}", "");
         SuccessfulUpdateResponseModel response = step("Невалидные данные пользователя в апдейте", () ->
@@ -49,6 +58,7 @@ public class OthersSpecModelTests extends TestBase {
     }
 
     @Test
+    @DisplayName("Обновление пользователя")
     void UpdatePatchTest() {
         UpdateUserModel updateUserData = new UpdateUserModel("morpheus", "zion resident");
         SuccessfulUpdateResponseModel response = step("Корретное обновление имени и работы пользователя(patch)", () ->
@@ -63,6 +73,5 @@ public class OthersSpecModelTests extends TestBase {
             assertEquals("morpheus",response.getName());
             assertEquals("zion resident",response.getJob());
         });
-
     }
 }
